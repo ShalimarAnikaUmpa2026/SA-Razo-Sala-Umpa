@@ -1,1 +1,5 @@
-
+Sa_1 =  input("SA1")
+Sa_2 = input (float("SA2:"))
+Fa_1 = input(float("FA1:"))
+Fa_2 = input(float("FA2:"))
+qtr_grade = input(float("Grade From Last Quarter:"))
