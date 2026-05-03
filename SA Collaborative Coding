@@ -1,13 +1,6 @@
 quarter = (int(input("Which quarter's grade will be calculated? (ex. 1, 2, 3) ")))
 while quarter > 4 or quarter < 1:
     quarter = (int(input("Invalid quarter, please enter a valid quarter (1-4). ")))
-f quarter == 1:
-    grade_perc = calculate_tentative_grade()
-else:
-    prev_quarter = (float(input("Please enter the percent equivalent of the final grade from the previous quarter (ex. 89): ")))
-    while prev_quarter > 100 or prev_quarter < 0:
-        prev_quarter = (float(input("Invalid grade, please input a valid grade (0-100). ")))
-    grade_perc = (prev_quarter + 2*(calculate_tentative_grade()))/3
 
 def calculate_tentative_grade():
     SA1 = float(input("Enter score for SA1 in percentage (ex. 70): "))
@@ -31,3 +24,47 @@ def calculate_tentative_grade():
     tent_grade = SA + FA
     
     return tent_grade
+
+if quarter == 1:
+    grade_perc = calculate_tentative_grade()
+else:
+    prev_quarter = (float(input("Please enter the percent equivalent of the final grade from the previous quarter (ex. 89): ")))
+    while prev_quarter > 100 or prev_quarter < 0:
+        prev_quarter = (float(input("Invalid grade, please input a valid grade (0-100). ")))
+    grade_perc = (prev_quarter + 2*(calculate_tentative_grade()))/3
+
+if grade_perc >= 60:
+    count = 96
+    final_grade = 1.00
+    while grade_perc < count:
+        count = count - 6
+        final_grade = final_grade + 0.25
+else:
+    count = 55
+    final_grade = 2.75
+    while grade_perc < count:
+        count = count - 5
+        final_grade = final_grade + 0.25
+        if final_grade == 3.00:
+            while grade_perc < count:
+                count = count - 5
+                final_grade = final_grade + 1.00
+
+# Setting Adjectival Equivalent
+if final_grade == 1.00:
+    status = (str("excellent!"))
+elif final_grade <= 1.50:
+    status = (str("very good!"))
+elif final_grade <= 2.00:
+    status = (str("good."))
+elif final_grade <= 2.50:
+    status = (str("satisfactory."))
+elif final_grade <= 3.00:
+    status = (str("fair."))
+elif final_grade == 4.00:
+    status = (str("a failure on condition."))
+else:
+    status = (str("failure."))
+
+# Printing Results
+print(f"The final grade is: {final_grade}, the percent equivalent is {grade_perc:.2f}. This grade is considered {status}")
