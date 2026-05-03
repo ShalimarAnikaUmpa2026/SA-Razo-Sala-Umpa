@@ -1,7 +1,9 @@
+# Defining quarter
 quarter = (int(input("Which quarter's grade will be calculated? (ex. 1, 2, 3) ")))
 while quarter > 4 or quarter < 1:
     quarter = (int(input("Invalid quarter, please enter a valid quarter (1-4). ")))
 
+# Defining function
 def calculate_tentative_grade():
     SA1 = float(input("Enter score for SA1 in percentage (ex. 70): "))
     while SA1 > 100 or SA1 < 0:
@@ -25,6 +27,7 @@ def calculate_tentative_grade():
     
     return tent_grade
 
+# Calculating grade
 if quarter == 1:
     grade_perc = calculate_tentative_grade()
 else:
@@ -33,6 +36,7 @@ else:
         prev_quarter = (float(input("Invalid grade, please input a valid grade (0-100). ")))
     grade_perc = (prev_quarter + 2*(calculate_tentative_grade()))/3
 
+# Turning calculation into result
 if grade_perc >= 60:
     count = 96
     final_grade = 1.00
