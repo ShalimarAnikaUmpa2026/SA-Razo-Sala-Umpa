@@ -8,3 +8,26 @@ else:
     while prev_quarter > 100 or prev_quarter < 0:
         prev_quarter = (float(input("Invalid grade, please input a valid grade (0-100). ")))
     grade_perc = (prev_quarter + 2*(calculate_tentative_grade()))/3
+
+def calculate_tentative_grade():
+    SA1 = float(input("Enter score for SA1 in percentage (ex. 70): "))
+    while SA1 > 100 or SA1 < 0:
+        SA1 = float(input("Invalid score, please enter the correct percentage (from 0-100): "))
+        
+    SA2 = float(input("Enter score for SA2 in percentage (ex. 89): "))
+    while SA2 > 100 or SA2 < 0:
+        SA2 = float(input("Invalid score, please enter the correct percentage (from 0-100): "))
+        
+    FA1 = float(input("Enter score for FA1 in percentage (ex. 70): "))
+    while FA1 > 100 or FA1 < 0:
+        FA1 = float(input("Invalid score, please enter the correct percentage (from 0-100): "))
+        
+    FA2 = float(input("Enter score for FA2 in percentage (ex. 89): "))
+    while FA2 > 100 or FA2 < 0:
+        FA2 = float(input("Invalid score, please enter the correct percentage (from 0-100): "))
+        
+    SA = float((SA1 + SA2) / 2) * 0.70
+    FA = float((FA1 + FA2) / 2) * 0.30
+    tent_grade = SA + FA
+    
+    return tent_grade
