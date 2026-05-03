@@ -1,7 +1,10 @@
-Sa1 = input(float("SA1"))
-Sa2 = input (float("SA2:"))
-Fa1 = input(float("FA1:"))
-Fa2 = input(float("FA2:"))
-qtr_grade = input(float("Grade From Last Quarter:"))
-
-SA= ((Sa1 + Sa2)/2)
+quarter = (int(input("Which quarter's grade will be calculated? (ex. 1, 2, 3) ")))
+while quarter > 4 or quarter < 1:
+    quarter = (int(input("Invalid quarter, please enter a valid quarter (1-4). ")))
+f quarter == 1:
+    grade_perc = calculate_tentative_grade()
+else:
+    prev_quarter = (float(input("Please enter the percent equivalent of the final grade from the previous quarter (ex. 89): ")))
+    while prev_quarter > 100 or prev_quarter < 0:
+        prev_quarter = (float(input("Invalid grade, please input a valid grade (0-100). ")))
+    grade_perc = (prev_quarter + 2*(calculate_tentative_grade()))/3
